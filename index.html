@@ -72,10 +72,9 @@
 
         /* Main Content (to the right of the navigation bar) */
         .container {
-            margin-left: 220px; /* Space for the navigation bar */
-            width: 80%;
-            padding: 20px;
-        }
+    margin-left: 220px; /* Updated dynamically via JavaScript */
+    transition: margin-left 0.3s ease;
+}
 
         /* Section Styling */
         .section {
@@ -277,13 +276,20 @@
 <body>
 
     <!-- Navigation Bar -->
-    <nav>
+   <body>
+    <button id="toggleNav" style="position: fixed; top: 10px; left: 210px; z-index: 1000;">Hide Nav</button>
+    <nav id="navbar">
         <a href="#about">About Me</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
     </nav>
+    <div class="container">
+        <!-- Rest of your content -->
+    </div>
+</body>
+
     <!-- Main Content -->
     <div class="container">
         
@@ -576,6 +582,22 @@ Aulya was born on September 30 2004, in Hospital Temenggong, Kulai, Johor. Her f
         setInterval(() => {
             changeSlide(1);
         }, 3000); // Change image every 3 seconds
+
+    const nav = document.getElementById("navbar");
+    const toggleButton = document.getElementById("toggleNav");
+    const container = document.querySelector(".container");
+
+    toggleButton.addEventListener("click", () => {
+        if (nav.style.display === "none") {
+            nav.style.display = "flex";
+            container.style.marginLeft = "220px";
+            toggleButton.textContent = "Hide Nav";
+        } else {
+            nav.style.display = "none";
+            container.style.marginLeft = "0";
+            toggleButton.textContent = "Show Nav";
+        }
+    });
     </script>
 </body>
 </html>
