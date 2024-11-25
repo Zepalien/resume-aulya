@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aulya Resume</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('main.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      padding: 20px;
+      background: linear-gradient(to bottom right, #1b2a49, #0a1128);
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+    .container img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-top: -75px;
+      border: 5px solid #1b2a49;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin: 15px 0;
+    }
+    p {
+      font-size: 1.2em;
+      margin: 10px 0 20px;
+    }
+    .more-button {
+      display: inline-block;
+      padding: 10px 25px;
+      background-color: #0078ff;
+      color: white;
+      font-size: 1em;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .more-button:hover {
+      background-color: #0056cc;
+    }
+    .year {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 1.2em;
+      color: #3a80f7;
+    }
+    .circle {
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, #0078ff, transparent);
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="year">2024</div>
+    <div class="circle"></div>
+    <img src="me.png" alt="Profile Picture">
+    <h1>AULYANABILA RESUME</h1>
+    <p>Hi, My name is Aulya. Diploma student in Information Management.</p>
+    <a href="index.html" class="more-button">More</a>
+  </div>
+</body>
+</html>
