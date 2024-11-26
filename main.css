@@ -290,10 +290,13 @@
         .more-button:hover {
             background-color: #45a049;
         }
-	<h2>Education</h2>
+	<h2>Education</h2> {
+        text-align: center; /* Centers text in the entire section */
+	}
         table {
             width: 100%;
             margin-top: 20px;
+	    margin: 0 auto;
             border-collapse: collapse;
             border-style: double;
         }
