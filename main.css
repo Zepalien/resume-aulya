@@ -1,0 +1,387 @@
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1; /* Light gray background */
+            color: #333;
+	    color: white; /* Default font color */
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: #2C3E50; /* Deep Royal Blue */
+            padding: 20px;
+            width: 200px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+	    transition: transform 0.3s ease;
+        }
+	 nav.hidden {
+            transform: translateX(-200px);
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 12px 18px;
+            text-decoration: none;
+            color: #F1F1F1; /* Light font color */
+            text-align: center;
+            margin: 10px 0;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            font-size: 14px; /* Smaller font size */
+        }
+	 /* Toggle Button */
+        #toggleNav {
+            position: fixed;
+            top: 10px;
+            left: 210px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 3px;
+            cursor: pointer;
+            z-index: 500;
+            transition: left 0.3s ease;
+        }
+
+        .container {
+            margin-left: 100px;
+            flex-grow: 1;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .container.centered {
+            margin-left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Each nav link gets a different calm royal background color */
+        nav a:nth-child(1) {
+            background-color: #2C3E50; /* Deep Royal Blue */
+        }
+
+        nav a:nth-child(2) {
+            background-color: #A9BBA7; /* Sage Green */
+        }
+
+        nav a:nth-child(3) {
+            background-color: #4C6A72; /* Soft Teal */
+        }
+
+        nav a:nth-child(4) {
+            background-color: #D1D1D1; /* Light Grey */
+        }
+
+        nav a:nth-child(5) {
+            background-color: #0f5a5e; /* Slate Gray */
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 14px; /* Smaller font size */
+        }
+
+        /* Background Colors for Each Section */
+        #about {
+            background-color: #D4AF37; /* Muted Gold for About Me */
+        }
+
+        #experience {
+            background-color: #A9BBA7; /* Sage Green */
+        }
+
+        #education {
+            background-color: #4C6A72; /* Soft Teal */
+        }
+
+        #skills {
+            background-color: #D1D1D1; /* Light Grey */
+        }
+
+        #contact {
+            background-color: #0f5a5e; /* Slate Gray */
+        }
+    /* Header Section with Background Image */
+    header {
+    	position: relative;
+    	height: 150px;
+    	color: #fff;
+    	text-align: center;
+    	overflow: hidden;
+    	border: 5px solid #D3D3D3; /* Add border */
+       	padding: 10px; /* Adjust padding to create space between the border and content */
+	}
+
+
+        header::before {
+            content: "";
+            background-image: url('bg5.png'); /* Replace with your header image path */
+            background-size: cover;
+            background-position: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            transition: filter 0.3s ease;
+        }
+
+        /* Blurring the Background on Scroll */
+        body.scrolled header::before {
+            filter: blur(8px);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 5px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2C3E50; /* Deep Royal Blue */
+            color: #F1F1F1;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 12px; /* Smaller font size for footer */
+        }
+ 	/* Passport Photo */
+        .passport-photo {
+            width: 132px; /* Width in pixels for passport size */
+            height: 170px; /* Height in pixels for passport size */
+            object-fit: cover; /* Ensures the image fills the dimensions without distortion */
+            border: 2px solid #333; /* Optional: add border */
+            border-radius: 5px; /* Optional: slightly round corners */
+            margin-top: 20px; /* Optional: add space above image */
+        }
+	/* Carousel Container */
+        .carousel {
+            position: relative;
+            max-width: 300px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        /* Carousel Images */
+        .carousel img {
+            width: 100%;
+            display: none; /* Hide all images initially */
+        }
+
+        /* Show the first image */
+        .carousel img.active {
+            display: block;
+        }
+
+        /* Next and Previous Buttons */
+        .carousel .prev, .carousel .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 8px;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 3px;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        }
+
+        .carousel .prev {
+            left: 5px;
+        }
+
+        .carousel .next {
+            right: 5px;
+        }
+
+        /* Dot Indicators */
+        .dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 10px;
+            width: 10px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+         .skill-container {
+            margin: 20px 0;
+        }
+        .skill-label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: black;
+        }
+        .progress-container {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .progress-bar {
+            height: 25px;
+            background-color: #4CAF50;
+            text-align: right;
+            line-height: 25px;
+            color: white;
+            font-weight: bold;
+            padding-right: 10px;
+        }
+        .progress-bar.html { width: 70%; background-color: #2196F3; } /* Blue */
+        .progress-bar.css { width: 80%; background-color: #f44336; } /* Red */
+        .progress-bar.javascript { width: 90%; background-color: #FFC107; } /* Yellow */
+        
+         h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: white; /* White font for the heading */
+        }
+        .more-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .more-button:hover {
+            background-color: #45a049;
+        }
+	<h2>Education</h2>
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            border-style: double;
+        }
+        th {
+            font-weight: bold;
+            text-align: center;
+            background-color: #f2f2f2; /* Light gray background for headers */
+            padding: 10px;
+            color: black; /* Ensures header text is black */
+        }
+        td {
+            text-align: center; /* Center-align text in cells */
+            padding: 10px;
+            background-color: #eaf6ff; /* Light blue background for cells */
+            color: black; /* Ensures table cell text is black */
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        /* Modal styling */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+        }
+        .modal-content {
+            margin: 10% auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            position: relative;
+        }
+        .modal-content img {
+            max-width: 100%;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+        .close {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+            background-color: red;
+            padding: 5px 10px;
+            border-radius: 50%;
+        }
+        .close:hover {
+            background-color: darkred;
+        }
+        /* Button styling */
+        .gallery-button-container {
+            text-align: center; /* Center the button container */
+            margin-top: 20px; /* Add some spacing above the button */
+        }
+        .gallery-button,
+        .achievement-button {
+            margin: 10px; /* Space between buttons */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+        }
+        .gallery-button {
+            background-color: #4CAF50; /* Green color */
+        }
+        .gallery-button:hover {
+            background-color: #45a049;
+        }
+        .achievement-button {
+            background-color: #007bff; /* Blue color */
+        }
+        .achievement-button:hover {
+            background-color: #0056b3;
+        }
+    
+
