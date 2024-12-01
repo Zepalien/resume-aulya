@@ -1,4 +1,7 @@
         /* General Styles */
+html {
+    scroll-behavior: smooth;
+}
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -21,6 +24,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+	    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             align-items: center;
 	    transition: transform 0.3s ease;
         }
@@ -71,9 +75,9 @@
 
 
         nav a:hover {
-            opacity: 0.8;
-        }
-
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
         /* Each nav link gets a different calm royal background color */
         nav a:nth-child(1) {
             background-color: #2C3E50; /* Deep Royal Blue */
@@ -148,6 +152,39 @@
             z-index: -1;
             transition: filter 0.3s ease;
         }
+	header {
+    position: relative;
+    height: 150px;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+    border: 5px solid #D3D3D3; /* Add border */
+    padding: 10px; /* Adjust padding to create space between the border and content */
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.5); /* Glowing effect */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                 0 0 20px rgba(255, 255, 255, 0.6),
+                 0 0 30px rgba(255, 255, 255, 0.4);
+    background-color: #2C3E50; /* Backup background color in case image fails to load */
+}
+
+header::before {
+    content: "";
+    background-image: url('bg5.png'); /* Replace with your header image path */
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: filter 0.3s ease;
+}
+
+/* Optional: Glowing effect intensifies on hover */
+header:hover {
+    box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.7);
+}
 
         /* Blurring the Background on Scroll */
         body.scrolled header::before {
@@ -162,7 +199,7 @@
         ul li {
             margin: 5px 0;
         }
-
+      
         /* Footer */
         footer {
             background-color: #2C3E50; /* Deep Royal Blue */
@@ -243,33 +280,51 @@
         .dot.active {
             background-color: #717171;
         }
-         .skill-container {
-            margin: 20px 0;
-        }
-        .skill-label {
-            font-size: 16px;
-            margin-bottom: 5px;
-            color: black;
-        }
-        .progress-container {
-            width: 100%;
-            background-color: #f3f3f3;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .progress-bar {
-            height: 25px;
-            background-color: #4CAF50;
-            text-align: right;
-            line-height: 25px;
-            color: white;
-            font-weight: bold;
-            padding-right: 10px;
-        }
-        .progress-bar.html { width: 70%; background-color: #2196F3; } /* Blue */
-        .progress-bar.css { width: 80%; background-color: #f44336; } /* Red */
-        .progress-bar.javascript { width: 90%; background-color: #FFC107; } /* Yellow */
+       /* Container and Label */
+.skill-container {
+    margin: 20px 0;
+}
+
+.skill-label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: black;
+}
+
+/* Progress Bar Container */
+.progress-container {
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Bar Animation */
+.progress-bar {
+    height: 25px;
+    text-align: right;
+    line-height: 25px;
+    color: white;
+    font-weight: bold;
+    padding-right: 10px;
+    border-radius: 10px 0 0 10px;
+    width: 0; /* Initial width set to 0 */
+    animation: fill-bar 2s ease-out forwards; /* Smooth fill animation */
+}
+
+/* Individual Skill Colors */
+.progress-bar.html { background-color: #2196F3; } /* Blue */
+.progress-bar.css { background-color: #f44336; } /* Red */
+.progress-bar.javascript { background-color: #FFC107; } /* Yellow */
+
+/* Keyframes for Filling Effect */
+@keyframes fill-bar {
+    to {
+        width: var(--skill-level); /* Use CSS variables for dynamic width */
+    }
+}
+
         
          h2 {
             font-size: 24px;
@@ -316,6 +371,11 @@
         table, th, td {
             border: 1px solid black;
         }
+	table td:hover {
+    background-color: #f2f2f2;
+    transition: background-color 0.3s ease;
+}
+
         /* Modal styling */
         .modal {
             display: none; /* Hidden by default */
@@ -386,5 +446,83 @@
         .achievement-button:hover {
             background-color: #0056b3;
         }
-    
+	@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+.section {
+    animation: fadeIn 1s ease-in-out;
+}
+.wave {
+    background: url('wave.svg') no-repeat;
+    background-size: cover;
+    height: 100px;
+    margin-top: -5px;
+}
+/* Add border and pop-out effect */
+.flip-card {
+  margin-top: 20px;  /* Gap between the header and flip card */
+  margin-bottom: 20px;
+  background-color: transparent;
+  width: 133px;
+  height: 170px;
+  perspective: 1000px;
+  border: 2px solid #000;  /* Black border around the flip card */
+  border-radius: 10px;  /* Optional: Rounded corners */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);  /* Pop-out effect */
+  transition: box-shadow 0.3s ease;  /* Smooth transition for box-shadow on hover */
+}
+
+/* Add pop-out effect on hover */
+.flip-card:hover {
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);  /* Stronger shadow on hover for more pop */
+}
+
+/* Inner part of the flip card */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+/* Front and back of the card */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* The front side image */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* The back side image */
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* Flip effect on hover */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Ensure images fill the card properly */
+.flip-card-front img, .flip-card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image fits properly while maintaining aspect ratio */
+}
